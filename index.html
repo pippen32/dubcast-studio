@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DubCast Studio — Your YouTube Channel, Dubbed Into Spanish With Native Review</title>
+<meta name="description" content="DubCast Studio dubs your YouTube videos into Spanish with adapted translation and line-by-line native review. $149 per video. Retainers from $990/mo.">
+<style>
+:root{
+  --bg:#0d0616; --bg2:#160a26; --lane:#1a0d2e; --lane2:#21123a;
+  --violet:#a855f7; --magenta:#ff2ea6; --cyan:#38e1ff; --gold:#ffc94d;
+  --ink:#f5efff; --muted:#c9b8e8; --line:#3b2560;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;line-height:1.5}
+h1,h2,h3,.logo,.price,.trk-label,.seg b{font-family:"Arial Black","Segoe UI",system-ui,sans-serif;letter-spacing:.02em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+/* ===== transport bar / logo ===== */
+.transport{position:sticky;top:0;z-index:50;background:rgba(13,6,22,.96);border-bottom:2px solid var(--violet)}
+.transport .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.logo{font-size:22px;text-transform:uppercase}
+.logo .dub{color:var(--magenta)} .logo .cast{color:var(--cyan)}
+.rec{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#ffb3dd;border:1.5px solid var(--magenta);border-radius:999px;padding:4px 11px}
+.rec i{width:9px;height:9px;border-radius:50%;background:var(--magenta);display:inline-block}
+.transport .spacer{flex:1}
+.tc{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.1em}
+/* ===== buttons ===== */
+.btn{display:inline-block;background:linear-gradient(90deg,var(--magenta),var(--violet));color:#fff;text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.04em;border-radius:10px;padding:16px 26px;font-size:17px;box-shadow:0 6px 24px rgba(255,46,166,.35);text-align:center}
+.btn:hover{filter:brightness(1.12)}
+.btn.small{padding:11px 18px;font-size:14px}
+.btn.ghost{background:transparent;border:2px solid var(--cyan);color:var(--cyan);box-shadow:none}
+/* ===== track lanes (the reading pattern) ===== */
+.track{display:flex;gap:0;border-bottom:1px solid var(--line);position:relative}
+.track>.wrap{display:flex;width:100%}
+.trk-label{flex:0 0 118px;padding:26px 12px 26px 0;color:var(--muted);font-size:12px;text-transform:uppercase;line-height:1.7}
+.trk-label .n{display:block;font-size:20px;color:var(--violet)}
+.trk-label .n.es{color:var(--cyan)} .trk-label .n.mg{color:var(--magenta)} .trk-label .n.gd{color:var(--gold)}
+.trk-body{flex:1;min-width:0;padding:26px 0 30px 18px;border-left:2px solid var(--line);position:relative}
+.trk-body::before{content:"";position:absolute;left:-7px;top:34px;width:12px;height:12px;border-radius:50%;background:var(--magenta);box-shadow:0 0 12px var(--magenta)}
+.ruler{display:flex;justify-content:space-between;font-size:11px;color:#8d76b8;font-weight:700;letter-spacing:.08em;border-bottom:1px dashed var(--line);padding-bottom:6px;margin-bottom:18px}
+h1{font-size:clamp(30px,5.4vw,54px);line-height:1.08;text-transform:uppercase}
+h1 .hl{color:var(--magenta)} h1 .hl2{color:var(--cyan)}
+h2{font-size:clamp(23px,3.6vw,34px);line-height:1.15;text-transform:uppercase;margin-bottom:10px}
+h2 .hl{color:var(--magenta)} h2 .hl2{color:var(--cyan)} h2 .gd{color:var(--gold)}
+.sub{font-size:17px;color:var(--muted);max-width:640px}
+.segs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.seg{background:var(--lane2);border:1.5px solid var(--violet);border-radius:8px;padding:10px 14px;font-size:14px;flex:1 1 150px}
+.seg b{display:block;font-size:12px;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.seg.mag{border-color:var(--magenta)} .seg.mag b{color:var(--magenta)}
+.seg.gold{border-color:var(--gold)} .seg.gold b{color:var(--gold)}
+img.photo{width:100%;height:auto;border-radius:12px;border:2px solid var(--line);display:block}
+figure{margin:18px 0}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:7px;font-weight:600;letter-spacing:.03em}
+.stat-strip{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.stat{flex:1 1 180px;background:linear-gradient(160deg,var(--lane2),var(--bg2));border:1.5px solid var(--violet);border-radius:10px;padding:14px}
+.stat .big{font-family:"Arial Black",sans-serif;font-size:30px;color:var(--magenta)}
+.stat p{font-size:13.5px;color:var(--muted)}
+/* sample script */
+.sample-tag{display:inline-block;background:var(--gold);color:#1a1000;font-weight:900;font-size:12px;letter-spacing:.12em;padding:4px 10px;border-radius:6px;text-transform:uppercase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.col{border-radius:10px;padding:16px;font-size:15.5px}
+.col.en{background:var(--lane);border:1.5px solid var(--violet)}
+.col.es{background:#0a1a26;border:1.5px solid var(--cyan)}
+.col .lang{display:block;font-family:"Arial Black",sans-serif;font-size:13px;letter-spacing:.12em;margin-bottom:8px;text-transform:uppercase}
+.col.en .lang{color:var(--violet)} .col.es .lang{color:var(--cyan)}
+.col p{margin-bottom:10px}
+.notes{display:grid;gap:8px;margin:6px 0 16px}
+.note{background:var(--lane2);border-left:5px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 14px;font-size:14.5px}
+.note b{color:var(--gold);text-transform:uppercase;font-size:12px;letter-spacing:.08em;display:block}
+audio{width:100%;margin:8px 0 4px}
+.loc{background:var(--lane);border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px}
+.loc b{color:var(--cyan)}
+/* comparison bars */
+.bar-row{margin:16px 0}
+.bar-row .blabel{display:flex;justify-content:space-between;gap:10px;font-weight:800;font-size:15px;flex-wrap:wrap}
+.bar-row .blabel .amt{color:var(--gold);white-space:nowrap}
+.bar{height:26px;background:#241239;border-radius:7px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:7px}
+.bar .fill-mkt{background:linear-gradient(90deg,#6d28d9,#4c1d95)}
+.bar .fill-ag{background:linear-gradient(90deg,#7c3aed,#9333ea);opacity:.75}
+.bar .fill-dc{background:linear-gradient(90deg,var(--magenta),var(--violet))}
+.bar-note{font-size:13px;color:var(--muted);margin-top:4px}
+.bar-row.ours .blabel .amt{color:var(--magenta)}
+/* pricing clips */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.price-card{background:var(--lane);border:2px solid var(--violet);border-radius:12px;padding:20px 16px;display:flex;flex-direction:column;gap:8px}
+.price-card.hot{border-color:var(--magenta);background:linear-gradient(170deg,#2a0f3d,var(--lane))}
+.price-card .plan{font-size:12px;font-weight:900;letter-spacing:.14em;color:var(--cyan);text-transform:uppercase}
+.price-card.hot .plan{color:var(--magenta)}
+.price{font-size:38px;color:#fff}
+.price small{font-size:15px;color:var(--muted);font-family:"Segoe UI",sans-serif}
+.price-card ul{list-style:none;font-size:14.5px;color:var(--muted);flex:1}
+.price-card li{padding:4px 0 4px 20px;position:relative}
+.price-card li::before{content:"▸";position:absolute;left:2px;color:var(--magenta);font-weight:900}
+.price-card .btn{margin-top:10px}
+.fine{font-size:12.5px;color:#9a83c4}
+.faq{display:grid;gap:8px}
+.faq div{background:var(--lane);border:1px solid var(--line);border-radius:9px;padding:12px 15px;font-size:14.5px}
+.faq b{color:var(--cyan);display:block;margin-bottom:2px}
+footer{background:#08030f;border-top:2px solid var(--violet);padding:34px 0 44px;text-align:center}
+footer .logo{font-size:26px}
+footer p{color:var(--muted);font-size:13.5px;margin:10px auto;max-width:560px}
+@media (max-width:720px){
+  .track{flex-direction:column}
+  .track>.wrap{flex-direction:column}
+  .trk-label{flex:none;padding:18px 0 0;display:flex;gap:10px;align-items:baseline}
+  .trk-label .n{font-size:17px}
+  .trk-body{border-left:none;padding:10px 0 24px}
+  .trk-body::before{display:none}
+  .cols{grid-template-columns:1fr}
+  .prices{grid-template-columns:1fr}
+  .btn{width:100%}
+  .bar-row .blabel{flex-direction:column;gap:2px}
+  .bar-row .blabel .amt{white-space:normal}
+  .transport .tc{display:none}
+  h1{font-size:31px}
+}
+</style>
+</head>
+<body>
+
+<div class="transport">
+  <div class="wrap">
+    <div class="logo">🎙️ <span class="dub">Dub</span><span class="cast">Cast</span> Studio</div>
+    <span class="rec"><i></i>REC · EN → ES</span>
+    <div class="spacer"></div>
+    <span class="tc">TRACK SHEET · YOUTUBE LOCALIZATION</span>
+    <a class="btn small" href="#PAYHIP-URL">Dub My Channel</a>
+  </div>
+</div>
+
+<!-- TRACK 00 · THE HOOK -->
+<section class="track"><div class="wrap">
+  <div class="trk-label"><span class="n mg">TRK 00</span>Hook<br>0:00 ▶</div>
+  <div class="trk-body">
+    <div class="ruler"><span>0:00</span><span>0:15</span><span>0:30</span><span>0:45</span><span>1:00</span></div>
+    <h1>Your videos already have a <span class="hl">Spanish audience.</span> They just <span class="hl2">can’t hear you</span> yet.</h1>
+    <p class="sub" style="margin-top:12px">Somewhere in your analytics there is a viewer in Mexico City, Madrid or Bogotá who clicked your video, heard English, and left in eight seconds. What happens to your watch time if that viewer stays? Scroll one track down — the answer is already recorded.</p>
+    <div class="segs">
+      <div class="seg mag"><b>The mystery</b>Why do some channels quietly get a second, bigger channel out of the same videos?</div>
+      <div class="seg"><b>The clue</b>YouTube’s own multi-language audio data — see Track 01.</div>
+      <div class="seg gold"><b>The catch</b>Raw auto-dubbing sounds like a robot. Retention dies. There is a fix.</div>
+    </div>
+    <a class="btn" href="#PAYHIP-URL">Dub My Channel →</a>
+    <figure>
+      <img class="photo" src="assets/studio-mic.jpg" alt="Professional condenser microphone and headphones in a neon-lit voice-over recording booth" width="800" height="533">
+      <figcaption>THE BOOTH — every DubCast track is reviewed line by line before it ever reaches your channel.</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<!-- TRACK 01 · THE PROOF + SAMPLE -->
+<section class="track"><div class="wrap">
+  <div class="trk-label"><span class="n">TRK 01</span>Proof +<br>Sample</div>
+  <div class="trk-body">
+    <h2>Channels that dub see <span class="hl">+25% of watch time</span> come from another language</h2>
+    <p class="sub">That figure is YouTube’s own published data on multi-language audio: creators who add dubbed tracks report more than 25% of total watch time coming from non-primary-language viewers. Industry guidance (AIR Media-Tech, 2026) names Spanish the first language to add. The only question is whether your Spanish track sounds native — or sounds like a machine. Hear the difference:</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="big">+25%</div><p>of watch time on dubbed channels comes from viewers in a non-primary language (YouTube data).</p></div>
+      <div class="stat"><div class="big">#1</div><p>Spanish is the first dubbing language recommended for growth (AIR Media-Tech, 2026).</p></div>
+      <div class="stat"><div class="big">100%</div><p>of DubCast Spanish scripts get a full native-speaker review — line by line, idiom by idiom.</p></div>
+    </div>
+
+    <span class="sample-tag">Sample — script before / after</span>
+    <div class="cols">
+      <div class="col en"><span class="lang">Original · English · 0:00–0:12</span>
+        <p>“Okay, this changed everything. In the next sixty seconds, I’ll show you the mistake that’s quietly costing you money — and yeah, I made it too. Stick around, because tip number three is the one nobody talks about.”</p>
+      </div>
+      <div class="col es"><span class="lang">Adapted · Spanish · 0:00–0:12</span>
+        <p>“Esto lo cambió todo. En los próximos sesenta segundos te muestro el error que te está costando dinero sin que te des cuenta — y sí, yo también caí en él. Quédate, porque el tercer consejo es el que nadie te cuenta.”</p>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="note"><b>Adaptation note 1 — idiom changed</b>“Quietly costing you money” is not translated word-for-word. It becomes “te está costando dinero sin que te des cuenta” — how a native speaker actually says it.</div>
+      <div class="note"><b>Adaptation note 2 — hook / joke kept alive</b>“Stick around… the one nobody talks about” becomes “Quédate… el que nadie te cuenta.” Same curiosity hook, native rhythm — a literal translation would have killed it.</div>
+      <div class="note"><b>Adaptation note 3 — timed to the picture</b>The Spanish line is re-cut to land inside the same 0:00–0:12 window, so the dub syncs with your original edit instead of drifting over it.</div>
+    </div>
+    <p style="font-weight:800">▶ Listen — the Spanish sample line, as delivered:</p>
+    <audio controls preload="metadata" src="assets/demo-es.mp3"></audio>
+    <p class="fine">SAMPLE audio for demonstration only. Your channel’s dub uses your own voice clone — only with your written consent (see Track 04).</p>
+
+    <div class="loc"><b>Also localized — titles &amp; descriptions (sample):</b><br>
+    EN title: “I Tried Every Budget Hack for 30 Days — Here’s What Actually Worked”<br>
+    ES title: “Probé todos los trucos de ahorro por 30 días — esto fue lo que sí funcionó”<br>
+    EN description: “I tracked every dollar for a month. Three of these hacks were a waste of time.”<br>
+    ES description: “Registré cada dólar durante un mes. Tres de estos trucos fueron una pérdida de tiempo.”</div>
+  </div>
+</div></section>
+
+<!-- TRACK 02 · HOW IT WORKS -->
+<section class="track"><div class="wrap">
+  <div class="trk-label"><span class="n es">TRK 02</span>How it<br>works</div>
+  <div class="trk-body">
+    <h2>Five clips on the timeline. <span class="hl2">You only press upload.</span></h2>
+    <div class="segs">
+      <div class="seg"><b>Clip 1 · Transcript</b>Your video is transcribed and time-coded segment by segment.</div>
+      <div class="seg"><b>Clip 2 · Adaptation</b>Translation adapted — idioms, jokes and pacing rewritten to sound native, never literal.</div>
+      <div class="seg mag"><b>Clip 3 · The Dub</b>Spanish voice track produced to match your timing and energy. Voice cloning only with your written consent.</div>
+      <div class="seg"><b>Clip 4 · Native Review</b>A native Spanish reviewer checks every line before delivery. This is the step raw tools skip.</div>
+      <div class="seg gold"><b>Clip 5 · Upload-Ready</b>You receive the finished audio track plus localized title and description, ready for YouTube Studio.</div>
+    </div>
+    <figure>
+      <img class="photo" src="assets/studio-console.jpg" alt="Audio mixing console with glowing waveforms in a violet and magenta neon-lit control room" width="800" height="533">
+      <figcaption>THE CONSOLE — waveforms checked against your original edit, segment by segment.</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<!-- TRACK 03 · PRICE COMPARISON -->
+<section class="track"><div class="wrap">
+  <div class="trk-label"><span class="n gd">TRK 03</span>The<br>numbers</div>
+  <div class="trk-body">
+    <h2>What the market charges — <span class="gd">and what we charge</span></h2>
+    <div class="bar-row">
+      <div class="blabel"><span>Channel localization retainers in this niche</span><span class="amt">$1,500–$3,500 / month</span></div>
+      <div class="bar"><i class="fill-mkt" style="width:100%"></i></div>
+      <p class="bar-note">Full channel-management retainers reported across the niche (2026).</p>
+    </div>
+    <div class="bar-row">
+      <div class="blabel"><span>Agency AI dubbing, finished minute</span><span class="amt">$30–$150 / min → $300–$1,500 per 10-min video</span></div>
+      <div class="bar"><i class="fill-ag" style="width:43%"></i></div>
+      <p class="bar-note">Agency-produced AI dubbing, priced per finished minute (2026 localization cost guides). Raw per-minute tools exist too — e.g. Dublark at $2.99/min (1 language) or $4.99/min (2 languages) — but that buys un-managed, un-reviewed raw output: no adaptation pass, no native review, no channel handling.</p>
+    </div>
+    <div class="bar-row ours">
+      <div class="blabel"><span>DubCast Studio — channel retainer, native review included</span><span class="amt">$990 / month</span></div>
+      <div class="bar"><i class="fill-dc" style="width:28%"></i></div>
+    </div>
+    <div class="bar-row ours">
+      <div class="blabel"><span>DubCast Studio — single video, native review included</span><span class="amt">$149 / video</span></div>
+      <div class="bar"><i class="fill-dc" style="width:6%"></i></div>
+      <p class="bar-note">One flat price per video up to 12 minutes. No per-minute meter running while you watch.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- TRACK 04 · PRICING -->
+<section class="track"><div class="wrap">
+  <div class="trk-label"><span class="n mg">TRK 04</span>Pricing<br>+ terms</div>
+  <div class="trk-body">
+    <h2>Pick your track count</h2>
+    <div class="prices">
+      <div class="price-card">
+        <div class="plan">Single Video</div>
+        <div class="price">$149 <small>/ video</small></div>
+        <ul>
+          <li>1 video dubbed into Spanish (up to 12 minutes)</li>
+          <li>Adapted translation — never literal</li>
+          <li>Full native-speaker review included</li>
+          <li>Localized title + description included</li>
+          <li>Upload-ready audio track delivered</li>
+        </ul>
+        <a class="btn" href="#PAYHIP-URL">Dub My Channel</a>
+      </div>
+      <div class="price-card hot">
+        <div class="plan">Channel Retainer · Most Popular</div>
+        <div class="price">$990 <small>/ month</small></div>
+        <ul>
+          <li>8 videos per month</li>
+          <li>Spanish + Portuguese</li>
+          <li>Adaptation + native review on every video</li>
+          <li>Localized titles + descriptions</li>
+          <li>Monthly watch-time-by-language report</li>
+        </ul>
+        <a class="btn" href="#PAYHIP-URL">Dub My Channel</a>
+      </div>
+      <div class="price-card">
+        <div class="plan">Channel Retainer Plus</div>
+        <div class="price">$1,490 <small>/ month</small></div>
+        <ul>
+          <li>12 videos per month</li>
+          <li>3 languages (Spanish + Portuguese + 1 more)</li>
+          <li>Adaptation + native review on every video</li>
+          <li>Localized titles + descriptions</li>
+          <li>Monthly watch-time-by-language report</li>
+        </ul>
+        <a class="btn" href="#PAYHIP-URL">Dub My Channel</a>
+      </div>
+    </div>
+    <p class="fine">Retainers are billed month by month — the first month is charged at checkout. Voice cloning is used <b>only</b> with the channel owner’s written consent; without it, a professional Spanish voice is used instead. Genres heavy in untranslatable local humor may be declined at intake — we will tell you before you pay, not after.</p>
+    <div class="faq" style="margin-top:16px">
+      <div><b>How do I send my videos?</b>After checkout you get a short intake: links to your videos and editor access to YouTube Studio. We handle everything from there.</div>
+      <div><b>Will it sound like me?</b>With your written consent, yes — your voice is cloned into Spanish. Without consent, we use a professional Spanish voice matched to your channel’s tone.</div>
+      <div><b>What if my video is longer than 12 minutes?</b>Single-video pricing covers up to 12 minutes. Longer videos are quoted per project before any work starts.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- TRACK 05 · SPANISH BONUS -->
+<section class="track"><div class="wrap">
+  <div class="trk-label"><span class="n es">TRK 05</span>Bono<br>ES</div>
+  <div class="trk-body">
+    <h2>Revisión nativa de verdad: <span class="hl2">aquí el español es lengua materna</span></h2>
+    <p class="sub">La mayoría del doblaje automático traduce palabra por palabra y nadie lo revisa. En DubCast Studio cada guion pasa por revisión nativa completa: los modismos se adaptan, los chistes se reescriben para que funcionen en español y cada línea se ajusta al tiempo exacto de tu video. Por eso el resultado suena a canal hecho en español — no a traducción.</p>
+    <div style="margin-top:20px"><a class="btn" href="#PAYHIP-URL">Dub My Channel →</a></div>
+  </div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">🎙️ <span style="color:var(--magenta)">Dub</span><span style="color:var(--cyan)">Cast</span> Studio</div>
+    <p>Your channel in English. Your growth in Spanish. Dubbing and localization with adapted translation and full native review — $149 per video, retainers from $990/month (first month at checkout).</p>
+    <a class="btn" href="#PAYHIP-URL">Dub My Channel</a>
+    <p class="fine" style="margin-top:18px">All script and audio examples on this page are labeled samples created to demonstrate the adaptation process. Market prices cited from published 2026 sources (Dublark published pricing; 2026 localization cost guides; YouTube multi-language audio data; AIR Media-Tech 2026).</p>
+  </div>
+</footer>
+
+</body>
+</html>
